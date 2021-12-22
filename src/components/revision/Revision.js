@@ -1,7 +1,8 @@
+import React, { useEffect } from "react";
+import classes from "./Revision.module.css";
+import Card from "../UI/Card";
 import { Avatar, Button, Divider, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
-import classes from "./Revision.module.css";
 import ManIcon from '@mui/icons-material/Man';
 import BoyIcon from '@mui/icons-material/Boy';
 import PetsIcon from '@mui/icons-material/Pets';
@@ -9,7 +10,7 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import CheckIcon from '@mui/icons-material/Check';
 import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import Card from "../UI/Card";
+import DoNotDisturbIcon from '@mui/icons-material/DoNotDisturb';
 
 const footer = 
   <>
@@ -19,7 +20,7 @@ const footer =
   </>
 ;
 
-const Revision = () => {
+const Revision = (props) => {
   return (
     <>
       <Card title="Información de la reserva" color="#1976d2" footer={footer}>
@@ -38,7 +39,7 @@ const Revision = () => {
                     disablePadding 
                     secondaryAction={
                       <ListItemText edge="end" aria-label="comments">
-                        <Avatar sx={{ bgcolor: 'blue', width: 24, height: 24 }}>4</Avatar>
+                        <Avatar sx={{ bgcolor: 'blue', width: 24, height: 24 }}>{props.dataHouse.maxAdults}</Avatar>
                       </ListItemText>
                     }
                   >
@@ -56,7 +57,7 @@ const Revision = () => {
                     disablePadding
                     secondaryAction={
                       <ListItemText edge="end" aria-label="comments">
-                        <Avatar sx={{ bgcolor: 'blue', width: 24, height: 24 }}>2</Avatar>
+                        <Avatar sx={{ bgcolor: 'blue', width: 24, height: 24 }}>{props.dataHouse.maxChildren}</Avatar>
                       </ListItemText>
                     }
                   >
@@ -74,7 +75,8 @@ const Revision = () => {
                     disablePadding
                     secondaryAction={
                       <ListItemText edge="end" aria-label="comments">
-                        <CheckIcon></CheckIcon>
+                        {props.dataHouse.petsAllow && <CheckIcon></CheckIcon>}
+                        {!props.dataHouse.petsAllow && <DoNotDisturbIcon></DoNotDisturbIcon>}
                       </ListItemText>
                     }
                   >
@@ -92,7 +94,7 @@ const Revision = () => {
                     disablePadding
                     secondaryAction={
                       <ListItemText edge="end" aria-label="comments">
-                        <p>$150.56</p>
+                        <p>{props.dataHouse.nightPrice}</p>
                       </ListItemText>
                     }
                   >
@@ -121,7 +123,7 @@ const Revision = () => {
                     secondaryAction={
                       <>
                         <ListItemText aria-label="comments">
-                          <Avatar sx={{ bgcolor: 'blue', width: 24, height: 24 }}>0</Avatar>
+                          <Avatar sx={{ bgcolor: 'blue', width: 24, height: 24 }}>{props.reserve.qtyDays}</Avatar>
                         </ListItemText>
                       </>
                     }
@@ -140,7 +142,7 @@ const Revision = () => {
                     disablePadding
                     secondaryAction={
                       <ListItemText edge="end" aria-label="comments">
-                        <Avatar sx={{ bgcolor: 'blue', width: 24, height: 24 }}>0</Avatar>
+                        <Avatar sx={{ bgcolor: 'blue', width: 24, height: 24 }}>{props.reserve.qtyAdults + props.reserve.qtyChildren}</Avatar>
                       </ListItemText>
                     }
                   >
@@ -158,7 +160,8 @@ const Revision = () => {
                     disablePadding
                     secondaryAction={
                       <ListItemText edge="end" aria-label="comments">
-                        <CheckIcon></CheckIcon>
+                        {props.reserve.pets && <CheckIcon></CheckIcon>}
+                        {!props.reserve.pets && <DoNotDisturbIcon></DoNotDisturbIcon>}
                       </ListItemText>
                     }
                   >
@@ -176,7 +179,7 @@ const Revision = () => {
                     disablePadding
                     secondaryAction={
                       <ListItemText edge="end" aria-label="comments">
-                        <p>$1258.50</p>
+                        <p>{props.reserve.totalPrice}</p>
                       </ListItemText>
                     }
                   >
