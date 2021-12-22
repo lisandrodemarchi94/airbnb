@@ -7,12 +7,8 @@ import DatePicker from "@mui/lab/DatePicker";
 export default function BasicDatePicker(props) {
   const [value, setValue] = React.useState(null);
 
-  //   React.useEffect(() => {
-  //     props.onChangeDate();
-  //   }, [value]);
-
   const onChangeHandler = (newValue) => {
-    props.onChangeDate(newValue);
+    props.onChangeDate(newValue, props.id);
     setValue(newValue);
   };
 

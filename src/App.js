@@ -36,7 +36,10 @@ function App() {
     let price = 0;
 
     if (reserve.qtyAdults !== qtyAdults || reserve.qtyChildren !== qtyChildren || reserve.qtyDays !== qtyDays || reserve.pets !== pets) {
-      price = (Math.floor(Math.random() * 10000) + 10000).toString().substring(1);
+      price = (qtyAdults * 150 + qtyChildren * 50) * qtyDays;
+      if (pets) {
+        price += 100;
+      }
     } else {
       price = reserve.totalPrice;
     }
