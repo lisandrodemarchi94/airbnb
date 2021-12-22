@@ -198,8 +198,6 @@ const Revision = () => {
 
         </Box>
 
-        
-
       </Card>
     </>
   );

@@ -18,6 +18,8 @@ const Confirm = () => {
       <li>Duración de estadia</li>
       <li>Valor de noche</li>
       <li>Descuento</li>
+      <li>Costo de Limpieza</li>
+      <li>Total</li>
     </ul>
   </>;
 
