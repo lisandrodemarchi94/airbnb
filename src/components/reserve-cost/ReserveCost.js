@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Card from "../UI/Card";
+import Card from "../UI/card/Card";
 import { Box, Button, ButtonGroup, Checkbox, Divider, Grid } from "@mui/material";
 import BasicDatePicker from "../UI/BasicDataPicker";
 import classes from "./ReserveCost.module.css";
@@ -43,7 +43,7 @@ const ReserveCost = (props) => {
       </div>
       <Divider></Divider>
       <div>
-        <label><strong>Total:${props.totalPrice}</strong></label>
+        <p><strong>Total:${props.totalPrice}</strong></p>
         <span><strong></strong></span>
       </div>
     </>

@@ -3,9 +3,17 @@
     min-height: 136px;
 }
 
-.footer div{
+.footer div {
     font-style: italic;
     margin-bottom: 5px;
+}
+
+.footer div label {
+    margin-left: 10px;
+}
+
+.footer div p {
+    margin: 0px;
 }
 
 .footer h4 {

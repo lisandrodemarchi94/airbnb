@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import classes from "./ReserveInfo.module.css";
-import Card from "../UI/Card";
+import Card from "../UI/card/Card";
 import { Avatar, Button, Divider, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import { Box } from "@mui/system";
 import ManIcon from '@mui/icons-material/Man';
