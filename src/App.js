@@ -6,6 +6,7 @@ import ResponsiveAppBar from "./components/UI/ResponsiveAppBar";
 import { Grid } from "@mui/material";
 
 const DUMMY_DATA_HOUSE = {
+  name: "Casa Azul",
   maxAdults: 4,
   maxChildren: 2,
   petsAllow: true,
