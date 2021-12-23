@@ -1,25 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Card from "../UI/Card";
-import { Box, Button, ButtonGroup, Checkbox, Grid } from "@mui/material";
-import Travelers from "../travelers/Travelers";
+import { Box, Button, ButtonGroup, Checkbox, Divider, Grid } from "@mui/material";
 import BasicDatePicker from "../UI/BasicDataPicker";
-import classes from "./Confirm.module.css";
+import classes from "./ReserveCost.module.css";
 
-const footer = (
-  <>
-    <h5>Costo de la Reserva</h5>
-
-    <ul>
-      <li>Duración de estadia</li>
-      <li>Valor de noche</li>
-      <li>Descuento</li>
-      <li>Costo de Limpieza</li>
-      <li>Total</li>
-    </ul>
-  </>
-);
-
-const Confirm = (props) => {
+const ReserveCost = (props) => {
   const [qtyAdults, setQtyAdults] = useState(0);
   const [qtyChildren, setQtyChildren] = useState(0);
   const [pets, setPets] = useState(false);
@@ -37,6 +22,33 @@ const Confirm = (props) => {
     }
   }, [dateFrom, dateTo]);
 
+  const footer = (
+    <>
+      <h4>Costo de la Reserva</h4>
+      <div>
+        <label>Duración de estadia: </label>
+        <span>{qtyDays} dias</span>
+      </div>
+      <div>
+        <label>Costo por Adulto: </label>
+        <span>${props.dataHouse.adultPrice}</span>
+      </div>
+      <div>
+        <label>Costo por Niño: </label>
+        <span>${props.dataHouse.childPrice}</span>
+      </div>
+      <div>
+        <label>Costo de limpieza: </label>
+        <span>${props.dataHouse.cleaningCost}</span>
+      </div>
+      <Divider></Divider>
+      <div>
+        <label><strong>Total:${props.totalPrice}</strong></label>
+        <span><strong></strong></span>
+      </div>
+    </>
+  );
+
   const onChangeDateHandler = (date, id) => {
     if (id === "dateTo" && date <= dateFrom) {
       setDateTo(null);
@@ -50,7 +62,7 @@ const Confirm = (props) => {
 
   const addAdult = () => {
     setQtyAdults((prevState) => {
-      return prevState < props.maxAdults ? prevState + 1 : prevState;
+      return prevState < props.dataHouse.maxAdults ? prevState + 1 : prevState;
     });
   };
 
@@ -62,7 +74,7 @@ const Confirm = (props) => {
 
   const addChildren = () => {
     setQtyChildren((prevState) => {
-      return prevState < props.maxChildren ? prevState + 1 : prevState;
+      return prevState < props.dataHouse.maxChildren ? prevState + 1 : prevState;
     });
   };
 
@@ -114,7 +126,7 @@ const Confirm = (props) => {
                     <Button onClick={removeAdult}>-</Button>
                     <Button
                       onClick={addAdult}
-                      disabled={qtyAdults >= props.maxAdults}
+                      disabled={qtyAdults >= props.dataHouse.maxAdults}
                     >
                       +
                     </Button>
@@ -134,7 +146,7 @@ const Confirm = (props) => {
                     <Button onClick={removeChildren}>-</Button>
                     <Button
                       onClick={addChildren}
-                      disabled={qtyChildren >= props.maxChildren}
+                      disabled={qtyChildren >= props.dataHouse.maxChildren}
                     >
                       +
                     </Button>
@@ -172,4 +184,4 @@ const Confirm = (props) => {
   );
 };
 
-export default Confirm;
+export default ReserveCost;

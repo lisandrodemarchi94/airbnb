@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import classes from "./Revision.module.css";
+import classes from "./ReserveInfo.module.css";
 import Card from "../UI/Card";
 import { Avatar, Button, Divider, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import { Box } from "@mui/system";
@@ -12,15 +12,20 @@ import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import DoNotDisturbIcon from '@mui/icons-material/DoNotDisturb';
 
-const footer = 
-  <>
-    <p>Tú anfritión esta esperando por ti:</p>
-    <textarea className={classes["text-area"]} rows="4" placeholder="Consultale lo que necesites"></textarea>
-    <Button variant="contained" className={classes['btn-continue']}>Continuar</Button>
-  </>
-;
+
 
 const Revision = (props) => {
+
+  const footer = 
+    <>
+      <p>Tú anfritión esta esperando por ti:</p>
+      <textarea className={classes["text-area"]} rows="4" placeholder="Consultale lo que necesites"></textarea>
+      <Button disabled={props.reserve.totalPrice && props.reserve.totalPrice > 0 ? false : true} variant="contained" 
+        className={classes['btn-continue']}>
+        Continuar
+      </Button>
+    </>;
+
   return (
     <>
       <Card title="Información de la reserva" color="#1976d2" footer={footer}>
@@ -94,7 +99,7 @@ const Revision = (props) => {
                     disablePadding
                     secondaryAction={
                       <ListItemText edge="end" aria-label="comments">
-                        <p>{props.dataHouse.nightPrice}</p>
+                        <p>{props.dataHouse.minNightPrice}</p>
                       </ListItemText>
                     }
                   >

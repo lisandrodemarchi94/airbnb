@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
-import Revision from "./components/revision/Revision";
-import Confirm from "./components/confirm/Confirm";
+import Revision from "./components/reserve-info/ReserveInfo";
+import ReserveCost from "./components/reserve-cost/ReserveCost";
 import classes from "./App.module.css";
 import ResponsiveAppBar from "./components/UI/ResponsiveAppBar";
 import { Grid } from "@mui/material";
@@ -9,7 +9,11 @@ const DUMMY_DATA_HOUSE = {
   maxAdults: 4,
   maxChildren: 2,
   petsAllow: true,
-  nightPrice: 150.56,
+  adultPrice: 150,
+  childPrice: 50,
+  cleaningCost: 100,
+  petsCost: 100,
+  minNightPrice: 250
 };
 
 const reserveReducer = (state, action) => {
@@ -36,9 +40,9 @@ function App() {
     let price = 0;
 
     if (reserve.qtyAdults !== qtyAdults || reserve.qtyChildren !== qtyChildren || reserve.qtyDays !== qtyDays || reserve.pets !== pets) {
-      price = (qtyAdults * 150 + qtyChildren * 50) * qtyDays;
+      price = ((qtyAdults * DUMMY_DATA_HOUSE.adultPrice + qtyChildren * DUMMY_DATA_HOUSE.childPrice) * qtyDays) + DUMMY_DATA_HOUSE.cleaningCost;
       if (pets) {
-        price += 100;
+        price += DUMMY_DATA_HOUSE.petsCost;
       }
     } else {
       price = reserve.totalPrice;
@@ -62,11 +66,11 @@ function App() {
             <Revision dataHouse={DUMMY_DATA_HOUSE} reserve={reserve}></Revision>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Confirm
-              maxAdults={DUMMY_DATA_HOUSE.maxAdults}
-              maxChildren={DUMMY_DATA_HOUSE.maxChildren}
+            <ReserveCost
+              dataHouse={DUMMY_DATA_HOUSE}
               onCalculateReserve={onCalculateReserveHandler}
-            ></Confirm>
+              totalPrice={reserve.totalPrice}
+            ></ReserveCost>
           </Grid>
         </Grid>
       </div>
