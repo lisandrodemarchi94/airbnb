@@ -6,7 +6,7 @@ import { Button, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import YourReserve from "./your-reserve/YourReserve";
 
-const Revision = (props) => {
+const ReserveInfo = (props) => {
   const footer = (
     <>
       <p>Tú anfritión esta esperando por ti:</p>
@@ -31,14 +31,17 @@ const Revision = (props) => {
 
   return (
     <>
-      <Card title="Información de la reserva" color="#1976d2" footer={footer}>
+      <Card
+        title="Información de la reserva"
+        footer={footer}
+      >
         <Box sx={{ flexGrow: 1 }}>
-          <Grid container spacing={1}>
+          <Grid container spacing={3}>
             <Grid item xs={12} md={6}>
               <HouseInfo dataHouse={props.dataHouse} />
             </Grid>
             <Grid item xs={12} md={6}>
-              <YourReserve reserve={props.reserve} houseName={props.dataHouse.name}/>
+              <YourReserve reserve={props.reserve} />
             </Grid>
           </Grid>
         </Box>
@@ -47,4 +50,4 @@ const Revision = (props) => {
   );
 };
 
-export default Revision;
+export default ReserveInfo;

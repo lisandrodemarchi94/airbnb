@@ -10,7 +10,7 @@ import CheckIcon from '@mui/icons-material/Check';
 
 const HouseInfo = (props) => {
   return (
-    <Card title="Casa Azul">
+    <Card title={props.dataHouse.name} smallCard="true">
       <List>
         <ListItem
           disablePadding

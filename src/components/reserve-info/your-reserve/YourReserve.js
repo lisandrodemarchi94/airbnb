@@ -6,11 +6,11 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import CheckIcon from '@mui/icons-material/Check';
 import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import DoNotDisturbIcon from '@mui/icons-material/DoNotDisturb';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 const YourReserve = (props) => {
   return (
-    <Card title={props.houseName}>
+    <Card title="Tú Reserva" smallCard="true">
       <List>
         <ListItem
           disablePadding
@@ -59,7 +59,7 @@ const YourReserve = (props) => {
           secondaryAction={
             <ListItemText edge="end" aria-label="comments">
               {props.reserve.pets && <CheckIcon></CheckIcon>}
-              {!props.reserve.pets && <DoNotDisturbIcon></DoNotDisturbIcon>}
+              {!props.reserve.pets && <HighlightOffIcon />}
             </ListItemText>
           }
         >

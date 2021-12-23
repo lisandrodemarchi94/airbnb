@@ -95,7 +95,7 @@ const ReserveCost = (props) => {
       <Card
         title="Calcular costo de la reserva"
         footer={footer}
-        minHeight="309px"
+        minHeight="285px"
       >
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={1}>
@@ -115,7 +115,7 @@ const ReserveCost = (props) => {
               ></BasicDatePicker>
             </Grid>
 
-            <Grid item xs={12} md={12} sx={{ marginTop: "20px" }}>
+            <Grid item xs={12} md={12} sx={{ marginTop: "10px" }}>
               <Grid container>
                 <Grid item xs={6} md={6}>
                   <label>Adultos: {qtyAdults}</label>
@@ -135,7 +135,7 @@ const ReserveCost = (props) => {
               </Grid>
             </Grid>
 
-            <Grid item xs={12} md={12} sx={{ marginTop: "20px" }}>
+            <Grid item xs={12} md={12} sx={{ marginTop: "10px" }}>
               <Grid container>
                 <Grid item xs={6} md={6}>
                   <label>Niños: {qtyChildren}</label>
@@ -155,7 +155,7 @@ const ReserveCost = (props) => {
               </Grid>
             </Grid>
 
-            <Grid item xs={12} md={12} sx={{ marginTop: "20px" }}>
+            <Grid item xs={12} md={12} sx={{ marginTop: "10px" }}>
               <Grid container>
                 <Grid item xs={6} md={6}>
                   <label>¿Mascotas?</label>
@@ -167,7 +167,7 @@ const ReserveCost = (props) => {
               </Grid>
             </Grid>
 
-            <Grid item xs={12} md={12} sx={{ marginTop: "20px" }}>
+            <Grid item xs={12} md={12} sx={{ marginTop: "28px" }}>
               <Button
                 variant="contained"
                 className={classes["btn-calc"]}
