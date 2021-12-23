@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Card, CardContent, CardHeader, Divider } from "@mui/material";
 import classes from "./Card.module.css";
-import { fontSize } from "@mui/system";
 
 export default function BasicCard(props) {
   const cardHeaderStyle = {

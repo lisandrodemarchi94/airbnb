@@ -22,6 +22,15 @@ const ReserveCost = (props) => {
     }
   }, [dateFrom, dateTo]);
 
+  useEffect(() => {
+    if (props.totalPrice === 0) {
+      setQtyAdults(0);
+      setQtyChildren(0);
+      setPets(false);
+      setQtyDays(0);
+    }
+  }, [props]);
+
   const footer = (
     <>
       <h4>Costo de la Reserva</h4>
@@ -104,6 +113,7 @@ const ReserveCost = (props) => {
                 id="dateFrom"
                 label="CHECK-IN"
                 onChangeDate={onChangeDateHandler}
+                qtyDays={qtyDays}
               ></BasicDatePicker>
             </Grid>
 
@@ -112,6 +122,7 @@ const ReserveCost = (props) => {
                 id="dateTo"
                 label="CHECK-OUT"
                 onChangeDate={onChangeDateHandler}
+                qtyDays={qtyDays}
               ></BasicDatePicker>
             </Grid>
 

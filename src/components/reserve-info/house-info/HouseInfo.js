@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "C:/Users/Usuario/Desktop/Challenge/airbnb/src/components/UI/card/Card";
+import Card from ".//../../UI/card/Card";
 import { Avatar, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import ManIcon from '@mui/icons-material/Man';
 import BoyIcon from '@mui/icons-material/Boy';

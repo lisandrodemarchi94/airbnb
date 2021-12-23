@@ -66,6 +66,16 @@ function App() {
     });
   };
 
+  const resetValues = () => {
+    dispatchReserve({
+      qtyAdults: 0,
+      qtyChildren: 0,
+      pets: false,
+      qtyDays: 0,
+      totalPrice: 0,
+    });
+  };
+
   return (
     <>
       <ResponsiveAppBar></ResponsiveAppBar>
@@ -75,6 +85,7 @@ function App() {
             <ReserveInfo
               dataHouse={DUMMY_DATA_HOUSE}
               reserve={reserve}
+              onConfirmReserve={resetValues}
             ></ReserveInfo>
           </Grid>
           <Grid item xs={12} md={6}>
